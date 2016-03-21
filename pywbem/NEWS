@@ -11,6 +11,25 @@ pywbem-0.9.0.dev<x>  2016-03-20
         - cimxml_parse.py
         - twisted_client.py
 
+  ENHANCEMENTS:
+
+    * Changed the return value of `repr()` for `WBEMConnection`, CIM type
+      classes (e.g. `Sint8`, `CIMDateTime`), and CIM object classes
+      (e.g. `CIMInstance`) so that they now return all attributes in a
+      reasonable order, and are suitable for debugging.
+
+    * Clarified in the description of `CIMClassName.__str__()` and
+      `CIMInstanceName.__str__()` that they return the WBEM URI representation
+      of the class path and instance path.
+
+    * Changed the return value of `str()` for CIM object classes
+      (e.g. `CIMProperty`) so that they now return a short set of the most
+      important attributes for human consumption.
+      Specifically, this resulted in the following changes:
+        - For `CIMProperty`, reduced the complete set of attributes to a short
+          set.
+        - For `CIMParameter`, added the attribute 'value'.
+        - For `CIMQualifierDeclaration`, added the attribute 'value'.
 
 pywbem-0.8.2  2016-03-20
 
@@ -26,7 +45,7 @@ pywbem-0.8.2  2016-03-20
         - M2Crypto
         - ply
         - six
-      
+
 
 pywbem-0.8.1  2016-03-18
 
@@ -51,7 +70,7 @@ pywbem-0.8.1  2016-03-18
       - The twisted client module twisted_client.py.
       - The Python provider modules cim_provider.py and cim_provider2.py.
       - The CIM indication listener in the `irecv` directory. See issue
-        #66 on GitHub. 
+        #66 on GitHub.
 
   CHANGES:
 
